@@ -45,6 +45,13 @@ Macro NewCTokenBringERC20 erc20 cToken borrowRate=0.000005 initialExchangeRate=2
     InterestRateModel Deploy Fixed StdInterest borrowRate -- Note: interest rate model probably shouldn't be global
     CTokenDelegate Deploy cTokenType cErc20Delegate
     CToken Deploy delegatorType cToken cToken (Erc20 erc20 Address) (Comptroller Address) (InterestRateModel StdInterest Address) initialExchangeRate decimals admin (CTokenDelegate cErc20Delegate Address) becomeImplementationData
+    
+--Same as NewCToken, but uses white paper interest model
+Macro NewCTokenWhitePaper erc20 cToken borrowRate=0.05 utilization=0.2 initialExchangeRate=2e9 decimals=8 tokenType=Standard delegatorType=CErc20DelegatorScenario cTokenType=CErc20DelegateScenario admin=Admin becomeImplementationData="0x0"
+    Erc20 Deploy tokenType erc20 erc20
+    InterestRateModel Deploy WhitePaper MyInterestModel borrowRate utilization
+    CTokenDelegate Deploy cTokenType cErc20Delegate
+    CToken Deploy delegatorType cToken cToken (Erc20 erc20 Address) (Comptroller Address) (InterestRateModel MyInterestModel Address) initialExchangeRate decimals admin (CTokenDelegate cErc20Delegate Address) becomeImplementationData
 
 Macro NewCTokenImmutable erc20 cToken borrowRate=0.000005 initialExchangeRate=2e9 decimals=8 tokenType=Standard cTokenType=Scenario admin=Admin
     Erc20 Deploy tokenType erc20 erc20
