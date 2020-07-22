@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 import * as fs from 'fs';
-import {readFile} from './File';
+import { readFile } from './File';
 
 let readlineAny = <any>readline;
 
@@ -15,7 +15,7 @@ export async function createInterface(options): Promise<readline.ReadLine> {
 
 	let oldAddHistory = rlAny._addHistory;
 
-	rlAny._addHistory = function() {
+	rlAny._addHistory = function () {
 		let last = rlAny.history[0];
 		let line = oldAddHistory.call(rl);
 
@@ -23,12 +23,11 @@ export async function createInterface(options): Promise<readline.ReadLine> {
 		if (line.length > 0 && line != last) {
 			fs.appendFileSync(options['path'], `${line}\n`);
 		}
-
 		// TODO: Truncate file?
 
 		return line;
 	}
-
+	rlAny.history = rlAny.history || [];
 	rlAny.history.push.apply(rlAny.history, cleanHistory);
 
 	return rl;
