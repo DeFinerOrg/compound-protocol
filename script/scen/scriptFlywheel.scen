@@ -8,15 +8,19 @@ PriceOracleProxy Deploy Admin (PriceOracle Address) (Address Zero) (Address Zero
 ComptrollerImpl Deploy ScenarioG2 ComptrollerScenG2
 Unitroller SetPendingImpl ComptrollerScenG2
 ComptrollerImpl ComptrollerScenG2 BecomeG2
+<<<<<<< HEAD
 Erc20 Deploy Standard USDC "USD Coin" 6
 Erc20 Deploy Standard USDT "Tether" 6
 Erc20 Deploy Standard WBTC "WBTC" 8
 
+=======
+>>>>>>> yichun/test-engine-integration
 --list some tokens
 Comptroller SetPriceOracle (PriceOracleProxy Address)
 Comptroller SetMaxAssets 20
 Comptroller SetCloseFactor 0.5
 Comptroller LiquidationIncentive 1.1
+<<<<<<< HEAD
 NewEtherToken cETH 0.000005 0.1
 NewCTokenWhitePaper ZRX cZRX 0.05 0.2 0.00001
 --NewCToken ZRX cZRX 0.000005 0.000001
@@ -41,10 +45,17 @@ Support cMKR collateralFactor:0.5
 Support cREP collateralFactor:0.5
 Support cWBTC collateralFactor:0.5
 
+=======
+NewCToken ZRX cZRX
+NewCToken BAT cBAT
+Support cZRX collateralFactor:0.5
+Support cBAT collateralFactor:0.5
+>>>>>>> yichun/test-engine-integration
 -- final
 ComptrollerImpl Deploy Scenario ComptrollerScen
 Unitroller SetPendingImpl ComptrollerScen
 
+<<<<<<< HEAD
 Comptroller SupportMarket cETH
 
 -- NewComptroller
@@ -89,6 +100,10 @@ Prep first 100e20 WBTC cWBTC
 Mint first 50e20 cWBTC--tokenbalance = 50e30 / 2e9 = 2.5e18
 
 PriceOracleProxy Deploy Admin (PriceOracle Address) (Address cETH) (Address cUSDC) (Address cSAI) (Address cDAI) (Address cUSDT)
+=======
+Prep Geoff 100e18 ZRX cZRX
+Mint Geoff 50e18 cZRX--tokenbalance = 50e18 / 2e9 = 2.5e10
+>>>>>>> yichun/test-engine-integration
 
 Prep Fourth Some BAT cBAT
 Mint Fourth 6e18 cBAT

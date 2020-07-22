@@ -1,4 +1,4 @@
-import {ReplPrinter} from './Printer';
+import { ReplPrinter } from './Printer';
 import {
   addInvariant,
   initWorld,
@@ -8,19 +8,19 @@ import {
   loadVerbose,
   World
 } from './World';
-import {throwExpect} from './Assert';
-import {Macros} from './Macro';
-import {formatEvent} from './Formatter';
-import {complete} from './Completer';
-import {loadContracts} from './Networks';
-import {accountAliases, loadAccounts} from './Accounts';
-import {getNetworkPath, readFile} from './File';
-import {SuccessInvariant} from './Invariant/SuccessInvariant';
-import {createInterface} from './HistoricReadline';
-import {runCommand} from './Runner';
-import {parse} from './Parser';
-import {forkWeb3} from './Hypothetical';
-import {getSaddle} from 'eth-saddle';
+import { throwExpect } from './Assert';
+import { Macros } from './Macro';
+import { formatEvent } from './Formatter';
+import { complete } from './Completer';
+import { loadContracts } from './Networks';
+import { accountAliases, loadAccounts } from './Accounts';
+import { getNetworkPath, readFile } from './File';
+import { SuccessInvariant } from './Invariant/SuccessInvariant';
+import { createInterface } from './HistoricReadline';
+import { runCommand } from './Runner';
+import { parse } from './Parser';
+import { forkWeb3 } from './Hypothetical';
+import { getSaddle } from 'eth-saddle';
 import Web3 from 'web3';
 
 import * as fs from 'fs';
@@ -72,7 +72,7 @@ async function repl(): Promise<void> {
   // Uck, we need to load core macros :(
   const coreMacros = fs.readFileSync(path.join(baseScenarioPath, 'CoreMacros'), 'utf8');
 
-  const macros = <Macros>parse(coreMacros, {startRule: 'macros'});
+  const macros = <Macros>parse(coreMacros, { startRule: 'macros' });
 
   let script = process.env['script'];
 
@@ -173,10 +173,11 @@ async function repl(): Promise<void> {
       return [...acc, ...finalScript.split("\n")];
     }, <string[]>[]);
 
-    return await combined.reduce(async (acc, command) => {
+    await combined.reduce(async (acc, command) => {
       return await runCommand(await acc, command, macros);
     }, Promise.resolve(world));
     printer.printLine(`Script complete.`);
+    process.exit(0);
   } else {
     await loop(world, rl, macros);
   }
