@@ -18,8 +18,7 @@ Comptroller SetMaxAssets 20
 Comptroller SetCloseFactor 0.5
 Comptroller LiquidationIncentive 1.1
 NewEtherToken cETH 0.000005 0.1
-NewCTokenWhitePaper ZRX cZRX 0.05 0.2 0.00001
---NewCToken ZRX cZRX 0.000005 0.000001
+NewCToken ZRX cZRX 0.000005 0.000001
 NewCToken BAT cBAT 0.000005 0.1
 NewCToken DAI cDAI 0.000005 0.1
 NewCToken SAI cSAI 0.000005 0.1
