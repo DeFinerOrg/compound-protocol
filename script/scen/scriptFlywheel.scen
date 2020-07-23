@@ -18,8 +18,8 @@ Comptroller SetMaxAssets 20
 Comptroller SetCloseFactor 0.5
 Comptroller LiquidationIncentive 1.1
 NewEtherToken cETH 0.000005 0.1
-NewCTokenWhitePaper ZRX cZRX 0.05 0.2 0.00001
---NewCToken ZRX cZRX 0.000005 0.000001
+--NewCTokenWhitePaper ZRX cZRX 0.05 0.2 0.00001
+NewCToken ZRX cZRX 0.000005 0.000001
 NewCToken BAT cBAT 0.000005 0.1
 NewCToken DAI cDAI 0.000005 0.1
 NewCToken SAI cSAI 0.000005 0.1
@@ -61,8 +61,8 @@ Comptroller SupportMarket cETH
 Prep first 100e30 BAT cBAT
 Mint first 50e30 cBAT--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 ZRX cZRX
-Mint first 50e18 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 ZRX cZRX
+Mint first 50e30 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
 
 Prep first 100e30 DAI cDAI
 Mint first 50e30 cDAI--tokenbalance = 50e30 / 2e9 = 2.5e18
