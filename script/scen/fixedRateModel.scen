@@ -57,35 +57,35 @@ Comptroller SupportMarket cETH
 -- ListedCToken REP cREP initialExchangeRate:1e9
 -- ListedCToken WBTC cWBTC initialExchangeRate:0.1
 
-Prep first 100e18 BAT cBAT
-Mint first 50e18 cBAT--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 BAT cBAT
+Mint first 50e30 cBAT--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 ZRX cZRX
-Mint first 50e18 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 ZRX cZRX
+Mint first 50e30 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 DAI cDAI
-Mint first 50e18 cDAI--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 DAI cDAI
+Mint first 50e30 cDAI--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 SAI cSAI
-Mint first 50e18 cSAI--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 SAI cSAI
+Mint first 50e30 cSAI--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e6 USDC cUSDC
-Mint first 50e6 cUSDC--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e18 USDC cUSDC
+Mint first 50e18 cUSDC--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e6 USDT cUSDT
-Mint first 50e6 cUSDT--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e18 USDT cUSDT
+Mint first 50e18 cUSDT--tokenbalance = 50e30 / 2e9 = 2.5e18
 
 Prep first 100e18 TUSD cTUSD
 Mint first 50e18 cTUSD--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 MKR cMKR
-Mint first 50e18 cMKR--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 MKR cMKR
+Mint first 50e30 cMKR--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 REP cREP
-Mint first 50e18 cREP--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 REP cREP
+Mint first 50e30 cREP--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e8 WBTC cWBTC
-Mint first 50e8 cWBTC--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e20 WBTC cWBTC
+Mint first 50e20 cWBTC--tokenbalance = 50e30 / 2e9 = 2.5e18
 
 PriceOracleProxy Deploy Admin (PriceOracle Address) (Address cETH) (Address cUSDC) (Address cSAI) (Address cDAI) (Address cUSDT)
 
