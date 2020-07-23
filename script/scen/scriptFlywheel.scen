@@ -61,8 +61,8 @@ Comptroller SupportMarket cETH
 Prep first 100e30 BAT cBAT
 Mint first 50e30 cBAT--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Prep first 100e18 ZRX cZRX
-Mint first 50e18 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
+Prep first 100e30 ZRX cZRX
+Mint first 50e30 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
 
 Prep first 100e30 DAI cDAI
 Mint first 50e30 cDAI--tokenbalance = 50e30 / 2e9 = 2.5e18
