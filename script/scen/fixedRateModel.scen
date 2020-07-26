@@ -20,13 +20,13 @@ Comptroller LiquidationIncentive 1.1
 NewEtherToken cETH 0.000005 0.1
 NewCToken ZRX cZRX 0.000005 0.00001
 NewCToken BAT cBAT 0.000005 0.1
-NewCTokenWhitePaper DAI cDAI 0.000005 0.1
-NewCTokenWhitePaper SAI cSAI 0.000005 0.1
+NewCToken DAI cDAI 0.000005 0.1
+NewCToken SAI cSAI 0.000005 0.1
 NewCTokenBringERC20 USDC cUSDC 0.000005 0.00001
 NewCTokenBringERC20 USDT cUSDT 0.000005 0.00001
-NewCTokenWhitePaper TUSD cTUSD 0.000005 0.1
-NewCTokenWhitePaper MKR cMKR 0.000005 0.1
-NewCTokenWhitePaper REP cREP 0.000005 0.1
+NewCToken TUSD cTUSD 0.000005 0.1
+NewCToken MKR cMKR 0.000005 0.1
+NewCToken REP cREP 0.000005 0.1
 NewCTokenBringERC20 WBTC cWBTC 0.000005 0.0001
 
 Support cZRX collateralFactor:0.5
