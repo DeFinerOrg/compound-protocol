@@ -116,7 +116,7 @@ Comptroller Send "setCompAddress(address)" (Address COMP)
 
 Comptroller RefreshCompSpeeds
 
-FastForward 300000 Blocks
+--FastForward 300000 Blocks
 Read (Comptroller Address)
 Read (Address Fourth)
 Read (Address Fifth)
