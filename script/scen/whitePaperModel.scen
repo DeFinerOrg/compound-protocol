@@ -92,31 +92,35 @@ PriceOracleProxy Deploy Admin (PriceOracle Address) (Address cETH) (Address cUSD
 Prep Fourth Some BAT cBAT
 Mint Fourth 6e18 cBAT
 EnterMarkets Fourth cBAT
+Borrow Fourth 1e18 cDAI
 Borrow Fourth 1e18 cZRX
 
 Prep Fifth Some BAT cBAT
 Mint Fifth 6e18 cBAT
 EnterMarkets Fifth cBAT
+Borrow Fifth 1e18 cDAI
 Borrow Fifth 1e18 cZRX
 
 Prep Sixth Some BAT cBAT
 Mint Sixth 6e18 cBAT
 EnterMarkets Sixth cBAT
+Borrow Sixth 1e18 cDAI
 Borrow Sixth 1e18 cZRX
 
 Prep Seventh Some BAT cBAT
 Mint Seventh 6e18 cBAT
 EnterMarkets Seventh cBAT
+Borrow Seventh 1e18 cDAI
 Borrow Seventh 1e18 cZRX
 
-ComptrollerImpl ComptrollerScen Become 1e18 [cZRX cBAT]
+ComptrollerImpl ComptrollerScen Become 1e18 [cZRX cBAT cDAI]
 Erc20 Deploy Standard COMP "COMP Token" 18
 Give (Address Comptroller) 5000000e18 COMP
 Comptroller Send "setCompAddress(address)" (Address COMP)
 
 Comptroller RefreshCompSpeeds
 
---FastForward 300000 Blocks
+FastForward 300000 Blocks
 Read (Comptroller Address)
 Read (Address Fourth)
 Read (Address Fifth)
