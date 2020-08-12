@@ -24,8 +24,8 @@ module.exports = {
         { env: "PROVIDER" },
         {
           ganache: {
-            gasLimit: 2000000000,
-            gasPrice: 1,
+            gasLimit: 20000000,
+            gasPrice: 20000,
             defaultBalanceEther: 1000000000,
             allowUnlimitedContractSize: true,
             hardfork: 'istanbul'
@@ -35,7 +35,7 @@ module.exports = {
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
           { env: "GAS" },
-          { default: "200000000" }
+          { default: "6700000" }
         ],
         gas_price: [
           { env: "GAS_PRICE" },
@@ -56,8 +56,8 @@ module.exports = {
         { env: "PROVIDER" },
         {
           ganache: {
-            gasLimit: 20000000,
-            gasPrice: 20000,
+            gasLimit: 2000000000,
+            gasPrice: 1,
             defaultBalanceEther: 1000000000,
             allowUnlimitedContractSize: true,
             hardfork: 'istanbul'
@@ -67,7 +67,7 @@ module.exports = {
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
           { env: "GAS" },
-          { default: "6700000" }
+          { default: "200000000" }
         ],
         gas_price: [
           { env: "GAS_PRICE" },
