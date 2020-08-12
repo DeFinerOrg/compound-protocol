@@ -30,7 +30,7 @@ const basePath = process.env.proj_root || process.cwd();
 const baseScenarioPath = path.join(basePath, 'spec', 'scenario');
 const baseNetworksPath = path.join(basePath, 'networks');
 
-const TOTAL_GAS = 8000000;
+const TOTAL_GAS = 800000000;
 
 function questionPromise(rl): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -81,7 +81,6 @@ async function repl(): Promise<void> {
   if (!network) {
     throw new Error(`Missing required "network" env argument`);
   }
-
   let world;
 
   let rl = await createInterface({
@@ -96,11 +95,11 @@ async function repl(): Promise<void> {
 
   let printer = new ReplPrinter(rl, verbose);
   let contractInfo: string[];
-
   let saddle = await getSaddle(network);
   let accounts: string[] = saddle.wallet_accounts.concat(saddle.accounts).filter((x) => !!x);
 
   world = await initWorld(throwExpect, printer, saddle.web3, saddle, network, accounts, basePath, TOTAL_GAS);
+
   [world, contractInfo] = await loadContracts(world);
   world = loadInvokationOpts(world);
   world = loadVerbose(world);
@@ -150,6 +149,7 @@ async function repl(): Promise<void> {
   printer.printLine(``);
 
   if (script) {
+
     const combined = script.split(',').reduce((acc, script) => {
       printer.printLine(`Running script: ${script}...`);
       const envVars = loadEnvVars();
@@ -172,7 +172,6 @@ async function repl(): Promise<void> {
 
       return [...acc, ...finalScript.split("\n")];
     }, <string[]>[]);
-
     await combined.reduce(async (acc, command) => {
       return await runCommand(await acc, command, macros);
     }, Promise.resolve(world));

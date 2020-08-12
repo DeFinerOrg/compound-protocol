@@ -2,7 +2,7 @@
 module.exports = {
   // solc: "solc",                                          // Solc command to run
   solc_args: [                                              // Extra solc args
-    '--allow-paths','contracts,tests/Contracts',
+    '--allow-paths', 'contracts,tests/Contracts',
     '--evm-version', 'istanbul'
   ],
   solc_shell_args: {                                        // Args passed to `exec`, see:
@@ -14,30 +14,32 @@ module.exports = {
   // coverage_dir: "coverage",                              // Directory to place coverage files
   // coverage_ignore: [],                                   // List of files to ignore for coverage
   contracts: process.env['SADDLE_CONTRACTS'] || "{contracts,contracts/**,tests/Contracts}/*.sol",
-                                                            // Glob to match contract files
+  // Glob to match contract files
   trace: false,                                             // Compile with debug artifacts
   // TODO: Separate contracts for test?
   tests: ['**/tests/{,**/}*Test.js'],                       // Glob to match test files
   networks: {                                               // Define configuration for each network
     development: {
       providers: [
-      {env: "PROVIDER"},
-        {ganache: {
-          gasLimit: 20000000,
-          gasPrice: 20000,
-          defaultBalanceEther: 1000000000,
-          allowUnlimitedContractSize: true,
-          hardfork: 'istanbul'
-        }}
+        { env: "PROVIDER" },
+        {
+          ganache: {
+            gasLimit: 2000000000,
+            gasPrice: 1,
+            defaultBalanceEther: 1000000000,
+            allowUnlimitedContractSize: true,
+            hardfork: 'istanbul'
+          }
+        }
       ],
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
-          {env: "GAS"},
-          {default: "6700000"}
+          { env: "GAS" },
+          { default: "200000000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "20000"}
+          { env: "GAS_PRICE" },
+          { default: "20000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -45,8 +47,40 @@ module.exports = {
         }
       },
       accounts: [                                           // How to load default account for transactions
-        {env: "ACCOUNT"},                                   // Load from `ACCOUNT` env variable (e.g. env ACCOUNT=0x...)
-        {unlocked: 0}                                       // Else, try to grab first "unlocked" account from provider
+        { env: "ACCOUNT" },                                   // Load from `ACCOUNT` env variable (e.g. env ACCOUNT=0x...)
+        { unlocked: 0 }                                       // Else, try to grab first "unlocked" account from provider
+      ]
+    },
+    coverage: {
+      providers: [
+        { env: "PROVIDER" },
+        {
+          ganache: {
+            gasLimit: 20000000,
+            gasPrice: 20000,
+            defaultBalanceEther: 1000000000,
+            allowUnlimitedContractSize: true,
+            hardfork: 'istanbul'
+          }
+        }
+      ],
+      web3: {                                               // Web3 options for immediate confirmation in development mode
+        gas: [
+          { env: "GAS" },
+          { default: "6700000" }
+        ],
+        gas_price: [
+          { env: "GAS_PRICE" },
+          { default: "20000" }
+        ],
+        options: {
+          transactionConfirmationBlocks: 1,
+          transactionBlockTimeout: 5
+        }
+      },
+      accounts: [                                           // How to load default account for transactions
+        { env: "ACCOUNT" },                                   // Load from `ACCOUNT` env variable (e.g. env ACCOUNT=0x...)
+        { unlocked: 0 }                                       // Else, try to grab first "unlocked" account from provider
       ]
     },
     test: {
@@ -63,12 +97,12 @@ module.exports = {
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "20000000"}
+          { env: "GAS" },
+          { default: "20000000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "12000000002"}
+          { env: "GAS_PRICE" },
+          { default: "12000000002" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -76,24 +110,24 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {unlocked: 0}
+        { env: "ACCOUNT" },
+        { unlocked: 0 }
       ]
     },
     goerli: {
       providers: [
-        {env: "PROVIDER"},
-        {file: "~/.ethereum/goerli-url"},                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
-        {http: "https://goerli-eth.compound.finance"}
+        { env: "PROVIDER" },
+        { file: "~/.ethereum/goerli-url" },                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
+        { http: "https://goerli-eth.compound.finance" }
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "6700000"}
+          { env: "GAS" },
+          { default: "6700000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "12000000000"}
+          { env: "GAS_PRICE" },
+          { default: "12000000000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -101,24 +135,24 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {file: "~/.ethereum/goerli"},                         // Load from given file with contents as the private key (e.g. 0x...)
-        {unlocked: 0}
+        { env: "ACCOUNT" },
+        { file: "~/.ethereum/goerli" },                         // Load from given file with contents as the private key (e.g. 0x...)
+        { unlocked: 0 }
       ]
     },
     ropsten: {
       providers: [
-        {env: "PROVIDER"},
-        {file: "~/.ethereum/ropsten-url"},                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
+        { env: "PROVIDER" },
+        { file: "~/.ethereum/ropsten-url" },                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "6700000"}
+          { env: "GAS" },
+          { default: "6700000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "12000000000"}
+          { env: "GAS_PRICE" },
+          { default: "12000000000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -126,24 +160,24 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {file: "~/.ethereum/ropsten"}                         // Load from given file with contents as the private key (e.g. 0x...)
+        { env: "ACCOUNT" },
+        { file: "~/.ethereum/ropsten" }                         // Load from given file with contents as the private key (e.g. 0x...)
       ]
     },
     rinkeby: {
       providers: [
-        {env: "PROVIDER"},
-        {file: "~/.ethereum/rinkeby-url"},                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
-        {http: "https://rinkeby-eth.compound.finance"}
+        { env: "PROVIDER" },
+        { file: "~/.ethereum/rinkeby-url" },                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
+        { http: "https://rinkeby-eth.compound.finance" }
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "5600000"}
+          { env: "GAS" },
+          { default: "5600000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "12000000000"}
+          { env: "GAS_PRICE" },
+          { default: "12000000000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -151,25 +185,25 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {file: "~/.ethereum/rinkeby"},                        // Load from given file with contents as the private key (e.g. 0x...)
-        {unlocked: 0}
+        { env: "ACCOUNT" },
+        { file: "~/.ethereum/rinkeby" },                        // Load from given file with contents as the private key (e.g. 0x...)
+        { unlocked: 0 }
       ]
     },
     kovan: {
       providers: [
-        {env: "PROVIDER"},
-        {file: "~/.ethereum/kovan-url"},                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
-        {http: "https://kovan-eth.compound.finance"}
+        { env: "PROVIDER" },
+        { file: "~/.ethereum/kovan-url" },                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
+        { http: "https://kovan-eth.compound.finance" }
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "4600000"}
+          { env: "GAS" },
+          { default: "4600000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "12000000000"}
+          { env: "GAS_PRICE" },
+          { default: "12000000000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -177,25 +211,25 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {file: "~/.ethereum/kovan"},                        // Load from given file with contents as the private key (e.g. 0x...)
-        {unlocked: 0}
+        { env: "ACCOUNT" },
+        { file: "~/.ethereum/kovan" },                        // Load from given file with contents as the private key (e.g. 0x...)
+        { unlocked: 0 }
       ]
     },
     mainnet: {
       providers: [
-        {env: "PROVIDER"},
-        {file: "~/.ethereum/mainnet-url"},                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
-        {http: "https://mainnet-eth.compound.finance"}
+        { env: "PROVIDER" },
+        { file: "~/.ethereum/mainnet-url" },                    // Load from given file with contents as the URL (e.g. https://infura.io/api-key)
+        { http: "https://mainnet-eth.compound.finance" }
       ],
       web3: {
         gas: [
-          {env: "GAS"},
-          {default: "4600000"}
+          { env: "GAS" },
+          { default: "4600000" }
         ],
         gas_price: [
-          {env: "GAS_PRICE"},
-          {default: "4000000000"}
+          { env: "GAS_PRICE" },
+          { default: "4000000000" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -203,9 +237,9 @@ module.exports = {
         }
       },
       accounts: [
-        {env: "ACCOUNT"},
-        {file: `~/.ethereum/mainnet-${process.env['KEY']}`},
-        {file: "~/.ethereum/mainnet"}                        // Load from given file with contents as the private key (e.g. 0x...)
+        { env: "ACCOUNT" },
+        { file: `~/.ethereum/mainnet-${process.env['KEY']}` },
+        { file: "~/.ethereum/mainnet" }                        // Load from given file with contents as the private key (e.g. 0x...)
       ]
     },
   },
@@ -227,13 +261,14 @@ module.exports = {
     const path = require('path');
     const util = require('util');
 
+    // const networkFile = "/Users/yanyichun/project/Savings/compound-protocol/networks;
     const networkFile = path.join(process.cwd(), 'networks', `${network}.json`);
     return util.promisify(fs.readFile)(networkFile).then((json) => {
       return util.promisify(fs.writeFile)(networkFile,
-      JSON.stringify({
-        ...JSON.parse(json),
-        'Contracts': value
-      }, null, 4));
+        JSON.stringify({
+          ...JSON.parse(json),
+          'Contracts': value
+        }, null, 4));
     });
   },
   scripts: {

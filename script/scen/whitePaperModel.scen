@@ -94,24 +94,28 @@ Mint Fourth 6e18 cBAT
 EnterMarkets Fourth cBAT
 Borrow Fourth 1e18 cDAI
 Borrow Fourth 1e18 cZRX
+Borrow Fourth 1e6 cUSDC
 
 Prep Fifth Some BAT cBAT
 Mint Fifth 6e18 cBAT
 EnterMarkets Fifth cBAT
 Borrow Fifth 1e18 cDAI
 Borrow Fifth 1e18 cZRX
+Borrow Fourth 1e6 cUSDC
 
 Prep Sixth Some BAT cBAT
 Mint Sixth 6e18 cBAT
 EnterMarkets Sixth cBAT
 Borrow Sixth 1e18 cDAI
 Borrow Sixth 1e18 cZRX
+Borrow Fourth 1e6 cUSDC
 
 Prep Seventh Some BAT cBAT
 Mint Seventh 6e18 cBAT
 EnterMarkets Seventh cBAT
 Borrow Seventh 1e18 cDAI
 Borrow Seventh 1e18 cZRX
+Borrow Fourth 1e6 cUSDC
 
 ComptrollerImpl ComptrollerScen Become 1e18 [cZRX cBAT cDAI]
 Erc20 Deploy Standard COMP "COMP Token" 18
