@@ -77,7 +77,6 @@ async function repl(): Promise<void> {
   let script = process.env['script'];
 
   let network = process.env['network'];
-
   if (!network) {
     throw new Error(`Missing required "network" env argument`);
   }

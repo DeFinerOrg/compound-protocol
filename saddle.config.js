@@ -35,11 +35,11 @@ module.exports = {
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
           { env: "GAS" },
-          { default: "6700000" }
+          { default: "0x1fffffffffffff" }
         ],
         gas_price: [
           { env: "GAS_PRICE" },
-          { default: "20000" }
+          { default: "1" }
         ],
         options: {
           transactionConfirmationBlocks: 1,
@@ -67,7 +67,7 @@ module.exports = {
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
           { env: "GAS" },
-          { default: "200000000" }
+          { default: "0x1fffffffffffff" }
         ],
         gas_price: [
           { env: "GAS_PRICE" },

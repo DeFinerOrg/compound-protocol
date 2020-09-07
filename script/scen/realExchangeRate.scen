@@ -1,0 +1,136 @@
+#!/usr/bin/env yarn run repl -s
+-- Deploys basic ComptrollerG3
+
+Unitroller Deploy
+PriceOracle Deploy Fixed 1.0
+PriceOracleProxy Deploy Admin (PriceOracle Address) (Address Zero) (Address Zero) (Address Zero) (Address Zero) (Address Zero)
+----g2
+ComptrollerImpl Deploy ScenarioG2 ComptrollerScenG2
+Unitroller SetPendingImpl ComptrollerScenG2
+ComptrollerImpl ComptrollerScenG2 BecomeG2
+Erc20 Deploy Standard USDC "USD Coin" 6
+Erc20 Deploy Standard USDT "Tether" 6
+Erc20 Deploy Standard WBTC "WBTC" 8
+
+--list some tokens
+Comptroller SetPriceOracle (PriceOracleProxy Address)
+Comptroller SetMaxAssets 20
+Comptroller SetCloseFactor 0.5
+Comptroller LiquidationIncentive 1.1
+NewEtherTokenWhitePaper cETH 0.00005 0.2 0.02
+NewCTokenWhitePaper ZRX cZRX 0.00005 0.2 0.02
+NewCTokenWhitePaper BAT cBAT 0.00005 0.2 0.02
+NewCTokenWhitePaper DAI cDAI 0.00005 0.2 0.02
+NewCTokenWhitePaper SAI cSAI 0.00005 0.2 0.02
+NewCTokenBringERC20WhitePaper USDC cUSDC 0.00005 0.2 0.02
+NewCTokenBringERC20WhitePaper USDT cUSDT 0.00005 0.2 0.02
+NewCTokenWhitePaper TUSD cTUSD 0.00005 0.2 0.02
+NewCTokenWhitePaper MKR cMKR 0.00005 0.2 0.02
+NewCTokenWhitePaper REP cREP 0.00005 0.2 0.02
+NewCTokenBringERC20WhitePaper WBTC cWBTC 0.00005 0.2 0.02
+
+Support cZRX collateralFactor:0.5
+Support cBAT collateralFactor:0.5
+Support cDAI collateralFactor:0.5
+Support cSAI collateralFactor:0.5
+Support cUSDC collateralFactor:0.5
+Support cUSDT collateralFactor:0.5
+Support cTUSD collateralFactor:0.5
+Support cMKR collateralFactor:0.5
+Support cREP collateralFactor:0.5
+Support cWBTC collateralFactor:0.5
+
+-- final
+ComptrollerImpl Deploy Scenario ComptrollerScen
+Unitroller SetPendingImpl ComptrollerScen
+
+Comptroller SupportMarket cETH
+
+-- NewComptroller
+-- ListedCToken BAT cBAT initialExchangeRate:1e9
+-- ListedCToken ZRX cZRX initialExchangeRate:1e9
+-- ListedCToken DAI cDAI initialExchangeRate:1e9
+-- ListedCToken SAI cSAI initialExchangeRate:1e9
+-- ListedCToken USDC cUSDC initialExchangeRate:0.001
+-- ListedCToken USDT cUSDT initialExchangeRate:0.001
+-- ListedCToken TUSD cTUSD initialExchangeRate:1e9
+-- ListedCToken REP cREP initialExchangeRate:1e9
+-- ListedCToken WBTC cWBTC initialExchangeRate:0.1
+
+Prep first 100e20 BAT cBAT
+Mint first 50e20 cBAT--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 ZRX cZRX
+Mint first 50e20 cZRX--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 DAI cDAI
+Mint first 50e20 cDAI--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 SAI cSAI
+Mint first 50e20 cSAI--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e8 USDC cUSDC
+Mint first 50e8 cUSDC--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e8 USDT cUSDT
+Mint first 50e8 cUSDT--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 TUSD cTUSD
+Mint first 50e20 cTUSD--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 MKR cMKR
+Mint first 50e20 cMKR--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e20 REP cREP
+Mint first 50e18 cREP--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+Prep first 100e10 WBTC cWBTC
+Mint first 50e10 cWBTC--tokenbalance = 50e30 / 2e9 = 2.5e18
+
+PriceOracleProxy Deploy Admin (PriceOracle Address) (Address cETH) (Address cUSDC) (Address cSAI) (Address cDAI) (Address cUSDT)
+
+Prep Fourth Some BAT cBAT
+Mint Fourth 6e18 cBAT
+EnterMarkets Fourth cBAT
+Borrow Fourth 1e18 cDAI
+Borrow Fourth 1e6 cUSDC
+Borrow Fourth 1e18 cZRX
+Borrow Fourth 1e8 cWBTC
+
+Prep Fifth Some BAT cBAT
+Mint Fifth 6e18 cBAT
+EnterMarkets Fifth cBAT
+Borrow Fifth 1e18 cDAI
+Borrow Fifth 1e6 cUSDC
+Borrow Fifth 1e18 cZRX
+Borrow Fifth 1e8 cWBTC
+
+Prep Sixth Some BAT cBAT
+Mint Sixth 6e18 cBAT
+EnterMarkets Sixth cBAT
+Borrow Sixth 1e18 cDAI
+Borrow Sixth 1e6 cUSDC
+Borrow Sixth 1e18 cZRX
+Borrow Sixth 1e8 cWBTC
+
+Prep Seventh Some BAT cBAT
+Mint Seventh 6e18 cBAT
+EnterMarkets Seventh cBAT
+Borrow Seventh 1e18 cDAI
+Borrow Seventh 1e6 cUSDC
+Borrow Seventh 1e18 cZRX
+Borrow Seventh 1e8 cWBTC
+
+ComptrollerImpl ComptrollerScen Become 1e18 [cZRX cBAT cDAI cUSDC cWBTC]
+Erc20 Deploy Standard COMP "COMP Token" 18
+Give (Address Comptroller) 5000000e18 COMP
+Comptroller Send "setCompAddress(address)" (Address COMP)
+
+Comptroller RefreshCompSpeeds
+
+-- FastForward 300000 Blocks
+Read (Comptroller Address)
+Read (Address Fourth)
+Read (Address Fifth)
+Read (Address Sixth)
+Read (Address Seventh)

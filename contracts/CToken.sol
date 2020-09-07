@@ -460,7 +460,30 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
 
         return uint(Error.NO_ERROR);
     }
+    function toString(address account) public pure returns(string memory) {
+        return toString(abi.encodePacked(account));
+    }
 
+    function toString(uint256 value) public pure returns(string memory) {
+        return toString(abi.encodePacked(value));
+    }
+
+    function toString(bytes32 value) public pure returns(string memory) {
+        return toString(abi.encodePacked(value));
+    }
+
+    function toString(bytes memory data) public pure returns(string memory) {
+        bytes memory alphabet = "0123456789abcdef";
+
+        bytes memory str = new bytes(2 + data.length * 2);
+        str[0] = '0';
+        str[1] = 'x';
+        for (uint i = 0; i < data.length; i++) {
+            str[2+i*2] = alphabet[uint(uint8(data[i] >> 4))];
+            str[3+i*2] = alphabet[uint(uint8(data[i] & 0x0f))];
+        }
+        return string(str);
+    }
     /**
      * @notice Sender supplies assets into the market and receives cTokens in exchange
      * @dev Accrues interest whether or not the operation succeeds, unless reverted
@@ -575,7 +598,24 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
         // redeemFresh emits redeem-specific logs on errors, so we don't need to
         return redeemFresh(msg.sender, redeemTokens, 0);
     }
-
+    function uint2str(uint _i) internal pure returns (string memory _uintAsString) {
+        if (_i == 0) {
+            return "0";
+        }
+        uint j = _i;
+        uint len;
+        while (j != 0) {
+            len++;
+            j /= 10;
+        }
+        bytes memory bstr = new bytes(len);
+        uint k = len - 1;
+        while (_i != 0) {
+            bstr[k--] = byte(uint8(48 + _i % 10));
+            _i /= 10;
+        }
+        return string(bstr);
+    }
     /**
      * @notice Sender redeems cTokens in exchange for a specified amount of underlying asset
      * @dev Accrues interest whether or not the operation succeeds, unless reverted
@@ -617,6 +657,7 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
 
         /* exchangeRate = invoke Exchange Rate Stored() */
         (vars.mathErr, vars.exchangeRateMantissa) = exchangeRateStoredInternal();
+
         if (vars.mathErr != MathError.NO_ERROR) {
             return failOpaque(Error.MATH_ERROR, FailureInfo.REDEEM_EXCHANGE_RATE_READ_FAILED, uint(vars.mathErr));
         }
@@ -690,6 +731,7 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
          *  On success, the cToken has redeemAmount less of cash.
          *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
          */
+
         doTransferOut(redeemer, vars.redeemAmount);
 
         /* We write previously calculated values into storage */
