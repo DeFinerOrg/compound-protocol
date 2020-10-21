@@ -26,7 +26,10 @@
     "solparse": "^2.2.8"
   },
   "dependencies": {
-    "eth-saddle": "^0.1.17"
+    "@compound-finance/eureka": "^1.0.2",
+    "@compound-finance/sol-tracing-utils": "^7.1.0-alpha.7",
+    "eth-saddle": "^0.1.21",
+    "solidity-parser-antlr": "^0.4.11"
   },
   "resolutions": {
     "scrypt.js": "https://registry.npmjs.org/@compound-finance/ethereumjs-wallet/-/ethereumjs-wallet-0.6.3.tgz",
