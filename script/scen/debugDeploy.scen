@@ -1,44 +1,44 @@
 #!/usr/bin/env yarn run repl -s
 -- Deploys basic ComptrollerG3
 
-Unitroller Deploy
-PriceOracle Deploy Fixed 1.0
-PriceOracleProxy Deploy Admin (PriceOracle Address) (Address Zero) (Address Zero) (Address Zero) (Address Zero) (Address Zero)
+--Unitroller Deploy
+--PriceOracle Deploy Fixed 1.0
+--PriceOracleProxy Deploy Admin (PriceOracle Address) (Address Zero) (Address Zero) (Address Zero) (Address Zero) (Address Zero)
 ----g2
-ComptrollerImpl Deploy ScenarioG2 ComptrollerScenG2
-Unitroller SetPendingImpl ComptrollerScenG2
-ComptrollerImpl ComptrollerScenG2 BecomeG2
-Erc20 Deploy Standard USDC "USD Coin" 6
-Erc20 Deploy Standard USDT "Tether" 6
-Erc20 Deploy Standard WBTC "WBTC" 8
+--ComptrollerImpl Deploy ScenarioG2 ComptrollerScenG2
+--Unitroller SetPendingImpl ComptrollerScenG2
+--ComptrollerImpl ComptrollerScenG2 BecomeG2
+--Erc20 Deploy Standard USDC "USD Coin" 6
+--Erc20 Deploy Standard USDT "Tether" 6
+--Erc20 Deploy Standard WBTC "WBTC" 8
 
 --list some tokens
-Comptroller SetPriceOracle (PriceOracleProxy Address)
-Comptroller SetMaxAssets 20
-Comptroller SetCloseFactor 0.5
-Comptroller LiquidationIncentive 1.1
-NewEtherTokenWhitePaper cETH 0.00005 0.2 0.1
-NewCTokenWhitePaper ZRX cZRX 0.00005 0.2 0.00001
-NewCTokenWhitePaper BAT cBAT 0.00005 0.2 0.1
-NewCTokenWhitePaper DAI cDAI 0.00005 0.2 0.1
-NewCTokenWhitePaper SAI cSAI 0.00005 0.2 0.1
-NewCTokenBringERC20WhitePaper USDC cUSDC 0.00005 0.2 0.00001
-NewCTokenBringERC20WhitePaper USDT cUSDT 0.00005 0.2 0.00001
-NewCTokenWhitePaper TUSD cTUSD 0.00005 0.2 0.1
-NewCTokenWhitePaper MKR cMKR 0.00005 0.2 0.1
-NewCTokenWhitePaper REP cREP 0.00005 0.2 0.1
-NewCTokenBringERC20WhitePaper WBTC cWBTC 0.00005 0.2 0.0001
+--Comptroller SetPriceOracle (PriceOracleProxy Address)
+--Comptroller SetMaxAssets 20
+--Comptroller SetCloseFactor 0.5
+--Comptroller LiquidationIncentive 1.1
+--NewEtherTokenWhitePaper cETH 0.00005 0.2 0.1
+--NewCTokenWhitePaper ZRX cZRX 0.00005 0.2 0.00001
+--NewCTokenWhitePaper BAT cBAT 0.00005 0.2 0.1
+--NewCTokenWhitePaper DAI cDAI 0.00005 0.2 0.1
+--NewCTokenWhitePaper SAI cSAI 0.00005 0.2 0.1
+--NewCTokenBringERC20WhitePaper USDC cUSDC 0.00005 0.2 0.00001
+--NewCTokenBringERC20WhitePaper USDT cUSDT 0.00005 0.2 0.00001
+--NewCTokenWhitePaper TUSD cTUSD 0.00005 0.2 0.1
+--NewCTokenWhitePaper MKR cMKR 0.00005 0.2 0.1
+--NewCTokenWhitePaper REP cREP 0.00005 0.2 0.1
+--NewCTokenBringERC20WhitePaper WBTC cWBTC 0.00005 0.2 0.0001
 
-Support cZRX collateralFactor:0.5
-Support cBAT collateralFactor:0.5
-Support cDAI collateralFactor:0.5
-Support cSAI collateralFactor:0.5
-Support cUSDC collateralFactor:0.5
-Support cUSDT collateralFactor:0.5
-Support cTUSD collateralFactor:0.5
-Support cMKR collateralFactor:0.5
-Support cREP collateralFactor:0.5
-Support cWBTC collateralFactor:0.5
+--Support cZRX collateralFactor:0.5
+--Support cBAT collateralFactor:0.5
+--Support cDAI collateralFactor:0.5
+--Support cSAI collateralFactor:0.5
+--Support cUSDC collateralFactor:0.5
+--Support cUSDT collateralFactor:0.5
+--Support cTUSD collateralFactor:0.5
+--Support cMKR collateralFactor:0.5
+--Support cREP collateralFactor:0.5
+--Support cWBTC collateralFactor:0.5
 
 -- final
 ComptrollerImpl Deploy Scenario ComptrollerScen
