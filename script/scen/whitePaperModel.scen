@@ -11,6 +11,8 @@ ComptrollerImpl ComptrollerScenG2 BecomeG2
 Erc20 Deploy Standard USDC "USD Coin" 6
 Erc20 Deploy Standard USDT "Tether" 6
 Erc20 Deploy Standard WBTC "WBTC" 8
+Erc20 Deploy Standard FIN "FIN" 18
+Erc20 Deploy Standard LPToken "LPToken" 18
 
 --list some tokens
 Comptroller SetPriceOracle (PriceOracleProxy Address)
