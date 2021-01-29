@@ -89,7 +89,8 @@ Mint first 50e18 cREP--tokenbalance = 50e30 / 2e9 = 2.5e18
 Prep first 100e10 WBTC cWBTC
 Mint first 50e10 cWBTC--tokenbalance = 50e30 / 2e9 = 2.5e18
 
-Erc20 FIN Faucet first 100e20
+Give first 10000000e18 FIN
+-- Erc20 FIN Faucet first 100e20
 Erc20 LPToken Faucet first 100e20
 
 PriceOracleProxy Deploy Admin (PriceOracle Address) (Address cETH) (Address cUSDC) (Address cSAI) (Address cDAI) (Address cUSDT)
